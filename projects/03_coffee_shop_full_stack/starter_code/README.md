@@ -11,7 +11,7 @@ You have been called on to demonstrate your newly learned skills to create a ful
 3) Allow the shop baristas to see the recipe information.
 4) Allow the shop managers to create new drinks and edit existing drinks.
 
-## Tasks
+## Run the project
 
 Start by reading the READMEs in:
 
@@ -33,3 +33,9 @@ The `./backend` directory contains a partially completed Flask server with a pre
 The `./frontend` directory contains a complete Ionic frontend to consume the data from the Flask server. You will only need to update the environment variables found within (./frontend/src/environment/environment.ts) to reflect the Auth0 configuration details set up for the backend app. 
 
 [View the README.md within ./frontend for more details.](./frontend/README.md)
+
+#### References
+https://www.w3schools.com/python/python_json.asp<br>
+https://stackoverflow.com/questions/18581571/storing-python-lists-in-sql-database<br>
+https://stackoverflow.com/questions/53285452/<br>internal-server-error-rather-than-raised-autherror-response-from-auth0<br>
+https://stackoverflow.com/questions/60781376/<br>python-jose-jwt-decode-fails-on-rs256-algorithm<br>
