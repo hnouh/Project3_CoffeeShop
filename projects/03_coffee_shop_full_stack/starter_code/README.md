@@ -37,5 +37,5 @@ The `./frontend` directory contains a complete Ionic frontend to consume the dat
 #### References
 https://www.w3schools.com/python/python_json.asp<br>
 https://stackoverflow.com/questions/18581571/storing-python-lists-in-sql-database<br>
-https://stackoverflow.com/questions/53285452/<br>internal-server-error-rather-than-raised-autherror-response-from-auth0<br>
-https://stackoverflow.com/questions/60781376/<br>python-jose-jwt-decode-fails-on-rs256-algorithm<br>
+https://stackoverflow.com/questions/53285452/internal-server-error-rather-than-raised-autherror-response-from-auth0<br>
+https://stackoverflow.com/questions/60781376/python-jose-jwt-decode-fails-on-rs256-algorithm<br>
