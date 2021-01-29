@@ -6,7 +6,7 @@ from flask_cors import CORS
 
 from .database.models import db_drop_and_create_all, setup_db, Drink
 from .auth.auth import AuthError, requires_auth
- 
+
 app = Flask(__name__)
 setup_db(app)
 CORS(app)
@@ -33,9 +33,9 @@ db_drop_and_create_all()
 def get_drinks():
     drinks = Drink.query.order_by(Drink.id).all()
     drinks = [drink.short() for drink in drinks]
-    
+
     if len(drinks) == 0:
-        abort(404) 
+        abort(404)
 
     return jsonify({
         'success': True,
@@ -78,6 +78,7 @@ def get_drinks_detail(jwt):
         or appropriate status code indicating reason for failure
 '''
 
+
 @app.route('/drinks', methods=['POST'])
 @requires_auth('post:drinks')
 def create_new_drink(jwt):
@@ -90,7 +91,7 @@ def create_new_drink(jwt):
 
     try:
         drink = Drink(title=new_title, recipe=converted_recipe)
-        drink.insert() 
+        drink.insert()
 
         return jsonify({
             'success': True,
@@ -129,7 +130,7 @@ def update_drink(jwt, drink_id):
         if 'title' in body:
             drink.title = body.get('title')
 
-        drink.update() 
+        drink.update()
 
         return jsonify({
             'success': True,
@@ -176,6 +177,8 @@ def delete_drink(jwt, drink_id):
 '''
 Example error handling for unprocessable entity
 '''
+
+
 @app.errorhandler(422)
 def unprocessable(error):
     return jsonify({
@@ -183,6 +186,8 @@ def unprocessable(error):
         "error": 422,
         "message": "unprocessable"
     }), 422
+
+
 '''
 @TODO implement error handlers using the @app.errorhandler(error) decorator
     each error handler should return (with approprate messages):
@@ -193,6 +198,8 @@ def unprocessable(error):
                     }), 404
 
 '''
+
+
 @app.errorhandler(400)
 def bad_request(error):
     return jsonify({
@@ -215,6 +222,8 @@ def not_found(error):
 @TODO implement error handler for 404
     error handler should conform to general task above 
 '''
+
+
 @app.errorhandler(404)
 def not_found(error):
     return jsonify({
@@ -222,12 +231,14 @@ def not_found(error):
         "error": 404,
         "message": "resource not found"
     }), 404
-    
+
 
 '''
 @TODO implement error handler for AuthError
     error handler should conform to general task above 
 '''
+
+
 @app.errorhandler(AuthError)
 def handle_auth_error(ex):
     response = jsonify(ex.error)

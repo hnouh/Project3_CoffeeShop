@@ -183,7 +183,7 @@ def requires_auth(permission=''):
             jwt = get_token_auth_header()
             try:
                 payload = verify_decode_jwt(jwt)
-            except Exception: 
+            except Exception:
                 raise AuthError({
                     'code': 'expired_token',
                     'description': 'The provided token has expired'
